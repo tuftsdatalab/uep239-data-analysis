@@ -19,7 +19,7 @@ jobs:
           mkdir --parents ./docs
           jupyter nbconvert --execute --allow-errors --to=html \
             --output=index.html --output-dir=./docs \
-            ./tutorial/${{ github.repository }}.ipynb
+            ./tutorial/${{ github.event.repository.name }}.ipynb
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
