@@ -16,7 +16,7 @@ jobs:
       - name: run-nbconvert
         shell: bash -l {0}
         run: |
-          sed -i "s/GH-ACTIONS-DATE/$(date '+%Y-%m-%d')/g" \
+          sed -i "s/GH_ACTIONS_DATE/$(date '+%Y-%m-%d')/g" \
             ./tutorial/${{ github.event.repository.name }}.ipynb
           mkdir --parents ./docs
           jupyter nbconvert --execute --allow-errors --to=html \
