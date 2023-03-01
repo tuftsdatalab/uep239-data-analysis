@@ -13,9 +13,8 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - id: date
-        run: |
-          echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_OUTPUT
+      - run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_STATE
       - uses: olivr/copybara-action@v1.2.3
         with:
           access_token: ${{ github.token }}
@@ -29,7 +28,7 @@ jobs:
             binder||.binder
             tutorial||
           push_replace: |
-            GH_ACTIONS_DATE||${{ steps.date.outputs.date }}
+            GH_ACTIONS_DATE||${{ env.date }}
           workflow: push
 
   mirror-to-tutorial-branch:
@@ -38,9 +37,8 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - id: date
-        run: |
-          echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_OUTPUT
+      - run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_STATE
       - uses: olivr/copybara-action@v1.2.3
         with:
           access_token: ${{ github.token }}
@@ -54,5 +52,5 @@ jobs:
             binder/environment.yml||environment.yml
             tutorial||
           push_replace: |
-            GH_ACTIONS_DATE||${{ steps.date.outputs.date }}
+            GH_ACTIONS_DATE||${{ env.date }}
           workflow: push
