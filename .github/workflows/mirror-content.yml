@@ -28,7 +28,7 @@ jobs:
             binder/**
             tutorial/**
           push_replace: |
-            GH-ACTIONS-DATE||${{ env.date }}||**.ipynb
+            GH-ACTIONS-DATE||${{ env.date }}
           push_move: |
             binder||.binder
             tutorial||
@@ -55,7 +55,7 @@ jobs:
             binder/environment.yml
             tutorial/**
           push_replace: |
-            GH-ACTIONS-DATE||${{ env.date }}||**.ipynb
+            GH-ACTIONS-DATE||${{ env.date }}
           push_move: |
             binder/environment.yml||environment.yml
             tutorial||
