@@ -9,9 +9,7 @@ jobs:
   publish-notebook:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v3
       - uses: mamba-org/provision-with-micromamba@main
         with:
           environment-file: ./binder/environment.yml
