@@ -29,7 +29,7 @@ jobs:
             binder||.binder
             tutorial||
           push_replace: |
-            ${{ env.date }}||GH-ACTIONS-DATE
+            GH_ACTIONS_DATE||${{ env.date }}
           workflow: push
 
   mirror-to-tutorial-branch:
@@ -54,5 +54,5 @@ jobs:
             binder/environment.yml||environment.yml
             tutorial||
           push_replace: |
-            ${{ env.date }}||GH-ACTIONS-DATE
+            GH_ACTIONS_DATE||${{ env.date }}
           workflow: push
