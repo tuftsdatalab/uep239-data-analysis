@@ -19,6 +19,7 @@ jobs:
           sed -i "s/GH_ACTIONS_DATE/$(date '+%Y-%m-%d')/g" \
             ./tutorial/${{ github.event.repository.name }}.ipynb
           mkdir --parents ./docs
+          cp -r ./tutorial/data ./docs
           jupyter nbconvert --execute --allow-errors --to=html \
             --output=index.html --output-dir=./docs \
             ./tutorial/${{ github.event.repository.name }}.ipynb
